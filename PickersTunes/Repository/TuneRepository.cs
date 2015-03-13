@@ -40,6 +40,34 @@ namespace PickersTunes.Repository
             return _dbContext.Tunes.Count<Models.Tune>();
         }
 
+        public void Add(Models.Tune T)
+        {
+            // TBD: error checking for adding duplicate tune, or migration on table
+            _dbContext.Tunes.Add(T);
+            _dbContext.SaveChanges();
+        }
+
+        public void Delete(Models.Tune T)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Models.Tune GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ObservableCollection<Models.Tune> GetByTuneName(string name)
+        {
+            var query = from Tune in _dbContext.Tunes
+                        where name == Tune.Name
+                        select Tune;
+            var tunes = new ObservableCollection<Tune>(query.ToList<Tune>());
+            return tunes;
+        }
+
+
+
         public void Clear()
         {
             var a = this.All();

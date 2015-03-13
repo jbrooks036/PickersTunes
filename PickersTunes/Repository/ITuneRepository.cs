@@ -12,12 +12,12 @@ namespace PickersTunes.Repository
     public interface ITuneRepository
     {
         int GetCount();
-        // void Add(Tune T);
-        // void Delete(Tune T);
+        void Add(Tune T);
+        void Delete(Tune T);
         void Clear();
         IEnumerable<Tune> All();
-        // Tune GetById(int id);
-        // ObservableCollection<Models.Tune> GetByTuneName(string name);
+        Tune GetById(int id);
+        ObservableCollection<Models.Tune> GetByTuneName(string name);
         // IQueryable<Tune> SearchFor(Expression<Func<Tune, bool>> predicate);
     }
 }
