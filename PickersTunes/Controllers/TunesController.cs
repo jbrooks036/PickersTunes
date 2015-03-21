@@ -8,19 +8,27 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
 using PickersTunes;
 using PickersTunes.Models;
+using PickersTunes.Repository;
 
 namespace PickersTunes.Controllers
 {
+    [RoutePrefix("api/Tune")]
     public class TunesController : ApiController
     {
-        private static TuneContext _db = new TuneContext();
+        private static TuneRepository _db = new TuneRepository();
 
         // GET: api/Tunes
         public IQueryable<Tune> GetTunes()
         {
-            return _db.Tunes;
+            string userId = User.Identity.GetUserId();
+            if (userId != null)
+            {
+                return _db.GetTunesByUserId(userId);
+            }
+            return _db.GetAllTunes();
         }
 
         // GET: api/Tunes/5

@@ -75,6 +75,14 @@ namespace PickersTunes.Repository
             _dbContext.SaveChanges();
         }
 
+        public IEnumerable<Models.Tune> GetTunesByUserId(string userId)
+        {
+            var qu = from tune in _dbContext.Tunes
+                     where tune.UserId == userId
+                     select tune;
+            return qu.ToList<Models.Tune>();
+        }
+
         public IEnumerable<Models.Tune> All()
         {
             var qu = from Tune in _dbContext.Tunes
