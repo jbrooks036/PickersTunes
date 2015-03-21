@@ -66,8 +66,6 @@ namespace PickersTunes.Repository
             return tunes;
         }
 
-
-
         public void Clear()
         {
             var a = this.All();
@@ -75,7 +73,7 @@ namespace PickersTunes.Repository
             _dbContext.SaveChanges();
         }
 
-        public IEnumerable<Models.Tune> GetTunesByUserId(string userId)
+        public IEnumerable<Models.Tune> GetAllTunesByUserId(string userId)
         {
             var qu = from tune in _dbContext.Tunes
                      where tune.UserId == userId
