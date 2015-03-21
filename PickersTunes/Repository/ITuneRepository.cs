@@ -17,6 +17,7 @@ namespace PickersTunes.Repository
         void Clear();
         IEnumerable<Tune> All();
         Tune GetById(int id);
+
         ObservableCollection<Models.Tune> GetByTuneName(string name);
         // IQueryable<Tune> SearchFor(Expression<Func<Tune, bool>> predicate);
     }
