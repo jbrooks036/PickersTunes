@@ -15,7 +15,7 @@ namespace PickersTunes.Models
         public string Artist { get; set; }
         public string Name { get; set; }
         public string Album { get; set; }
-        public string UserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public Tune()
         {
@@ -24,6 +24,7 @@ namespace PickersTunes.Models
 
         public Tune(string TuneName)
         {
+            this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             this.Artist = "";
             this.Name = TuneName;
             this.Album = "";
@@ -31,7 +32,15 @@ namespace PickersTunes.Models
 
         public Tune(string ArtistName, string TuneName, string AlbumName)
         {
-            this.UserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            this.Application.UserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            this.Artist = ArtistName;
+            this.Name = TuneName;
+            this.Album = AlbumName;
+        }
+
+        public Tune(string ArtistName, string TuneName, string AlbumName, string UserId)
+        {
+            this.ApplicationUserId = UserId;
             this.Artist = ArtistName;
             this.Name = TuneName;
             this.Album = AlbumName;

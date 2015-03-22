@@ -22,7 +22,7 @@ namespace PickersTunes.Migrations
                 new Tune
                 {
                     Name = "Foggy Mountain Breakdown",
-                    UserId = "Mary Rose",
+                    ApplicationUserId = "Mary Rose",
                     Artist = "Scruggs and Flatt",
                     Album = "Scruggs and Flatt"
                 },
@@ -30,7 +30,7 @@ namespace PickersTunes.Migrations
                 new Tune
                 {
                     Name = "You the One",
-                    UserId = "Mary Rose",
+                    ApplicationUserId = "Mary Rose",
                     Artist = "Kathy Mattea",
                     Album = "Wild Rose"
                 },
@@ -38,7 +38,7 @@ namespace PickersTunes.Migrations
                 new Tune
                 {
                     Name = "Keep on the Sunny Side",
-                    UserId = "Jennifer Iris",
+                    ApplicationUserId = "Jennifer Iris",
                     Artist = "Robin Flower",
                     Album = "First Album"
                 },
@@ -46,7 +46,7 @@ namespace PickersTunes.Migrations
                 new Tune
                 {
                     Name = "Tickle Me",
-                    UserId = "Jennifer Iris",
+                    ApplicationUserId = "Jennifer Iris",
                     Artist = "Robin Flower",
                     Album = "First Album"
                 }

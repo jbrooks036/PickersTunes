@@ -52,7 +52,7 @@ namespace PickersTunes.Repository
             throw new NotImplementedException();
         }
 
-        public Models.Tune GetById(int id)
+        public Models.Tune GetByIdandUserId(int id)
         {
             throw new NotImplementedException();
         }
@@ -76,7 +76,7 @@ namespace PickersTunes.Repository
         public IEnumerable<Models.Tune> GetAllTunesByUserId(string userId)
         {
             var qu = from tune in _dbContext.Tunes
-                     where tune.UserId == userId
+                     where tune.ApplicationUserId == userId
                      select tune;
             return qu.ToList<Models.Tune>();
         }
