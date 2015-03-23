@@ -32,7 +32,7 @@ namespace PickersTunes.Models
 
         public Tune(string ArtistName, string TuneName, string AlbumName)
         {
-            this.Application.UserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             this.Artist = ArtistName;
             this.Name = TuneName;
             this.Album = AlbumName;

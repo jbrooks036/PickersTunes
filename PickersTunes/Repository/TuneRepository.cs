@@ -52,9 +52,13 @@ namespace PickersTunes.Repository
             throw new NotImplementedException();
         }
 
-        public Models.Tune GetByIdandUserId(int id)
+        public Models.Tune GetTuneByIdandUserId(int id)
         {
-            throw new NotImplementedException();
+            var query = from Tune in _dbContext.Tunes
+                        where name == Tune.Name
+                        select Tune;
+            var tune = new ObservableCollection<Tune>(query.ToList<Tune>());
+            return tune;
         }
 
         public ObservableCollection<Models.Tune> GetByTuneName(string name)
@@ -81,12 +85,14 @@ namespace PickersTunes.Repository
             return qu.ToList<Models.Tune>();
         }
 
+        /*
         public IEnumerable<Models.Tune> All()
         {
             var qu = from Tune in _dbContext.Tunes
                      select Tune;
             return qu.ToList<Models.Tune>();
         }
+        */
 
     }
 }
