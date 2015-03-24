@@ -37,6 +37,7 @@ namespace TestPickers
             repo.Clear();
         }
 
+        /*
         [TestMethod]
         public void TestAddToDatabase() // Valid
         {
@@ -78,5 +79,6 @@ namespace TestPickers
             repo.Clear();
             Assert.AreEqual(0, repo.GetCount());
         }
+        */
     }
 }

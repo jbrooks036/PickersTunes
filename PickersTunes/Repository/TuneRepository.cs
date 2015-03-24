@@ -19,7 +19,7 @@ namespace PickersTunes.Repository
             _dbContext = new TuneContext();
             _dbContext.Tunes.Load();
 
-            // see the database
+            // seed the database
             _dbContext.Tunes.Add(new Models.Tune("Little Maggie"));
             _dbContext.Tunes.Add(new Models.Tune("Foggy Mountain Breakdown"));
             _dbContext.SaveChanges();
@@ -52,7 +52,8 @@ namespace PickersTunes.Repository
             throw new NotImplementedException();
         }
 
-        public Models.Tune GetTuneByIdandUserId(int id)
+        /*
+        public Models.Tune GetTuneByTuneIdandUserId(int tuneId, string userId)
         {
             var query = from Tune in _dbContext.Tunes
                         where name == Tune.Name
@@ -69,6 +70,7 @@ namespace PickersTunes.Repository
             var tunes = new ObservableCollection<Tune>(query.ToList<Tune>());
             return tunes;
         }
+        */
 
         public void Clear()
         {
@@ -85,14 +87,17 @@ namespace PickersTunes.Repository
             return qu.ToList<Models.Tune>();
         }
 
-        /*
         public IEnumerable<Models.Tune> All()
         {
             var qu = from Tune in _dbContext.Tunes
                      select Tune;
             return qu.ToList<Models.Tune>();
         }
-        */
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
 
     }
 }

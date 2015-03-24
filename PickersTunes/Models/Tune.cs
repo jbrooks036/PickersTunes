@@ -22,22 +22,29 @@ namespace PickersTunes.Models
             // placeholder
         }
 
-        public Tune(string TuneName)
+        public Tune(string tuneName, string artist= "", string albumName= "", string userId= "")
         {
-            this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            this.Artist = "";
-            this.Name = TuneName;
+            if (userId == "")
+            {
+                this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            }
+            else
+            {
+                this.ApplicationUserId = userId;
+            }
+            this.Name = tuneName;
             this.Album = "";
         }
 
-        public Tune(string ArtistName, string TuneName, string AlbumName)
+        public Tune(string tuneName)
         {
             this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            this.Artist = ArtistName;
-            this.Name = TuneName;
-            this.Album = AlbumName;
+            this.Artist = "";
+            this.Name = tuneName;
+            this.Album = "";
         }
 
+/*
         public Tune(string ArtistName, string TuneName, string AlbumName, string UserId)
         {
             this.ApplicationUserId = UserId;
@@ -45,6 +52,7 @@ namespace PickersTunes.Models
             this.Name = TuneName;
             this.Album = AlbumName;
         }
+*/
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

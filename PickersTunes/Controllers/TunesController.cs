@@ -21,16 +21,16 @@ namespace PickersTunes.Controllers
         private static TuneRepository _db = new TuneRepository();
 
         // GET: api/Tunes
-        public IQueryable<Tune> GetTunes()
+        public IEnumerable<Tune> GetAllTunesByUserId()
         {
             string userId = User.Identity.GetUserId();
             if (userId != null)
             {
-                return _db.GetTunesByUserId(userId);
+                return _db.GetAllTunesByUserId(userId);
             }
-            return _db.GetAllTunes();
+            throw new InvalidOperationException();
         }
-
+/*
         // GET: api/Tunes/5
         [ResponseType(typeof(Tune))]
         public IHttpActionResult GetTune(int id)
@@ -109,6 +109,7 @@ namespace PickersTunes.Controllers
 
             return Ok(tune);
         }
+*/
 
         protected override void Dispose(bool disposing)
         {
@@ -117,11 +118,13 @@ namespace PickersTunes.Controllers
                 _db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        } 
 
+ /*
         private bool TuneExists(int id)
         {
             return _db.Tunes.Count(e => e.TuneId == id) > 0;
         }
+ */
     }
 }

@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201503211607480_Initial.Designer.cs">
       <DependentUpon>201503211607480_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503231944404_FixTests.cs" />
+    <Compile Include="Migrations\201503231944404_FixTests.Designer.cs">
+      <DependentUpon>201503231944404_FixTests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TuneContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503211607480_Initial.resx">
       <DependentUpon>201503211607480_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503231944404_FixTests.resx">
+      <DependentUpon>201503231944404_FixTests.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
