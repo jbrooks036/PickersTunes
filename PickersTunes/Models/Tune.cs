@@ -44,22 +44,6 @@ namespace PickersTunes.Models
             this.ApplicationUserId = userId;
         }
 
-/*
-        public Tune(string ArtistName, string TuneName, string AlbumName, string UserId="")
-        {
-            if (userId == "")
-            {
-                this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            }
-            else
-            {
-                this.ApplicationUserId = userId;
-            }
-            this.Artist = ArtistName;
-            this.Name = TuneName;
-            this.Album = AlbumName;
-        }
-*/
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
