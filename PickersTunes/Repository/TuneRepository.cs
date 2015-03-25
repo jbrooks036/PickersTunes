@@ -62,14 +62,6 @@ namespace PickersTunes.Repository
             return tune;
         }
 
-        public ObservableCollection<Models.Tune> GetByTuneName(string name)
-        {
-            var query = from Tune in _dbContext.Tunes
-                        where name == Tune.Name
-                        select Tune;
-            var tunes = new ObservableCollection<Tune>(query.ToList<Tune>());
-            return tunes;
-        }
         */
 
         public void Clear()
@@ -77,6 +69,15 @@ namespace PickersTunes.Repository
             var a = this.All();
             _dbContext.Tunes.RemoveRange(a);
             _dbContext.SaveChanges();
+        }
+
+        public ObservableCollection<Models.Tune> GetByTuneName(string name)
+        {
+            var query = from Tune in _dbContext.Tunes
+                        where name == Tune.Name
+                        select Tune;
+            var tunes = new ObservableCollection<Tune>(query.ToList<Tune>());
+            return tunes;
         }
 
         public IEnumerable<Models.Tune> GetAllTunesByUserId(string userId)

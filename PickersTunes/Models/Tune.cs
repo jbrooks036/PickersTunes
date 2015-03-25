@@ -22,11 +22,11 @@ namespace PickersTunes.Models
             // placeholder
         }
 
-        public Tune(string tuneName, string artist= "", string albumName= "", string userId= "")
+        public Tune(string tuneName, string userId="")
         {
             if (userId == "")
             {
-                this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                this.ApplicationUserId = "Harry Jones";
             }
             else
             {
@@ -36,18 +36,25 @@ namespace PickersTunes.Models
             this.Album = "";
         }
 
-        public Tune(string tuneName)
+        public Tune(string tuneName, string artist, string albumName, string userId)
         {
-            this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            this.Artist = "";
             this.Name = tuneName;
-            this.Album = "";
+            this.Artist = artist;
+            this.Album = albumName;
+            this.ApplicationUserId = userId;
         }
 
 /*
-        public Tune(string ArtistName, string TuneName, string AlbumName, string UserId)
+        public Tune(string ArtistName, string TuneName, string AlbumName, string UserId="")
         {
-            this.ApplicationUserId = UserId;
+            if (userId == "")
+            {
+                this.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            }
+            else
+            {
+                this.ApplicationUserId = userId;
+            }
             this.Artist = ArtistName;
             this.Name = TuneName;
             this.Album = AlbumName;

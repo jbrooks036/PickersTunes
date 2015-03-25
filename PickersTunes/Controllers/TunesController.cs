@@ -15,12 +15,12 @@ using PickersTunes.Repository;
 
 namespace PickersTunes.Controllers
 {
-    [RoutePrefix("api/Tune")]
     public class TunesController : ApiController
     {
         private static TuneRepository _db = new TuneRepository();
 
         // GET: api/Tunes
+        [Route("api/Tune")]
         public IEnumerable<Tune> GetAllTunesByUserId()
         {
             string userId = User.Identity.GetUserId();

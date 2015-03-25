@@ -37,7 +37,6 @@ namespace TestPickers
             repo.Clear();
         }
 
-        /*
         [TestMethod]
         public void TestAddToDatabase() // Valid
         {
@@ -55,6 +54,16 @@ namespace TestPickers
         }
 
         [TestMethod]
+        public void TestGetAllByUserId()
+        {
+            repo.Add(new PickersTunes.Models.Tune("You the One", "Kathy Mattea", "Wild Rose", "Jennifer Iris"));
+            repo.Add(new PickersTunes.Models.Tune("Foggy Mountain Breakdown", "Scruggs and Flatt", "Scruggs and Flatt Album", "Mary Rose"));
+            repo.Add(new PickersTunes.Models.Tune("Keep on the Sunny Side", "Robin Flower", "First Album", "Jennifer Iris"));
+            repo.Add(new PickersTunes.Models.Tune("Tickle Me", "Robin Flower", "First Album", "Jennifer Iris"));
+            Assert.AreEqual(2, repo.GetCount());
+        }
+
+        [TestMethod]
         public void TestGetByTuneName()
         {
             repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
@@ -62,6 +71,15 @@ namespace TestPickers
             repo.Add(new PickersTunes.Models.Tune("Boil dem Cabbage Down"));
             var t = repo.GetByTuneName("Little Maggie")[0];
             Assert.AreEqual(t.Name, "Little Maggie");
+        }
+
+        /*
+        [TestMethod]
+        public void TestAddToDatabase() // Valid
+        {
+            Assert.AreEqual(0, repo.GetCount());
+            repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
+            Assert.AreEqual(1, repo.GetCount());
         }
 
         [TestMethod]
