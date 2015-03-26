@@ -19,13 +19,15 @@ namespace PickersTunes
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/pygment_trac.css",
+                      "~/Content/stylesheet.css"));
+
+            bundles.Add(new StyleBundle("~/Content/images").Include(
+                      "~/Content/images/bg_hr.png",
+                      "~/Content/images/blacktocat.png",
+                      "~/Content/images/icon_download.png",
+                      "~/Content/images/sprite_download.png"));
         }
     }
 }
