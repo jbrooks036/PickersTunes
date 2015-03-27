@@ -20,8 +20,8 @@ namespace PickersTunes.Controllers
         private static TuneRepository _db = new TuneRepository();
 
         // GET: api/Tunes
-        [Route("api/Tune")]
-        public IEnumerable<Tune> GetAllTunesByUserId()
+        [Route("api/Tunes")]
+        public IEnumerable<Tune> GetAllTunesCurrentUser()
         {
             string userId = User.Identity.GetUserId();
             if (userId != null)
@@ -32,8 +32,8 @@ namespace PickersTunes.Controllers
         }
 /*
         // GET: api/Tunes/5
-        [ResponseType(typeof(Tune))]
-        public IHttpActionResult GetTune(int id)
+        [Route("api/Tunes/{id}")]
+        public IEnumerable<Tune> GetTune(int id)
         {
             Tune tune = _db.Tunes.Find(id);
             if (tune == null)
