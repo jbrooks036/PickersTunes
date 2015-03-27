@@ -208,7 +208,7 @@
     <Content Include="Content\images\bg_hr.png" />
     <Content Include="Content\images\blacktocat.png" />
     <Content Include="Content\images\icon_download.png" />
-    <Content Include="Content\images\JoAnnBrooksBanjo.jpg" />
+    <Content Include="Content\images\JBrooksBanjo.jpg" />
     <Content Include="Content\images\sprite_download.png" />
     <Content Include="Content\pygment_trac.css" />
     <Content Include="Content\stylesheet.css" />
