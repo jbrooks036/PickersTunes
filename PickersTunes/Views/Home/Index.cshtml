@@ -19,7 +19,7 @@
             <a id="forkme_banner" href="https://github.com/jbrooks036/PickersTunes">View on GitHub</a>
 
             <h1 id="project_title">Pickers Tunes</h1>
-            <h2 id="project_tagline">ASP.NET MVC Web API</h2>
+            <h2 id="project_tagline">ASP.NET MVC 5 Web API</h2>
 
             <section id="downloads">
                 <a class="zip_download_link" href="https://github.com/jbrooks037/doc/zipball/master">Download this project as a .zip file</a>
@@ -32,8 +32,12 @@
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
             <h1>
-                <a id="welcome-to-pickers-tunes-restful-web-api--written-in-c-with-the-aspnet-mvc-framework" class="anchor" href="#welcome-to-pickers-tunes-restful-web-api--written-in-c-with-the-aspnet-mvc-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Pickers Tunes RESTful Web API.  Written in C# with the ASP.NET MVC Framework.
+                <a id="pickers-tunes-a-restful-web-api" class="anchor" href="#pickers-tunes-a-restful-web-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pickers Tunes RESTful Web API  
             </h1>
+
+            <h2>
+                <a id="written-in-c-with-the-aspnet-mvc-5-framework" class="anchor" href="#written-in-c-with-the-aspnet-mvc-5-framework" aria-hidden="true"><span class="octicon octicon-link"></span></a>Written in C# with the ASP.NET MVC 5 Framework
+            </h2>
 
             <h3>
                 <a id="by-jo-ann-brooks" class="anchor" href="#by-jo-ann-brooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>By Jo Ann Brooks
@@ -60,109 +64,137 @@
             <p>Pickers Tunes provides the following subresources:</p>
 
             <h4>Operational</h4>
-            <ul>
-                <li> Add </li>
-                <li> All </li>
-                <li> Delete </li>
-                <li> GetAllTunesByUserId </li>
-                <li>  </li>
-                <li> Register </li>
-                <li> Login </li>
-                <li> Logout </li>
-            </ul>
+            <dl>
+                <dt> GetAllTunesCurrentUser </dt>
+                <dd> // GET: api/Tunes </dd>
+                <dd> [Route("api/Tunes")] </dd>
+                <dd> public IEnumerable <tune> GetAllTunesCurrentUser() </dd>
+            </dl>
+
+            <dl>
+                <dt> GetTune </dt>
+                <dd> // GET: api/Tunes/5 </dd>
+                <dd> [Route("api/Tunes/{id}")] </dd>
+                <dd> public IEnumerable<tune> GetTune(int id) </dd>
+            </dl>
+
+            <dl>
+                <dt> Add </dt>
+                <dd> // POST: api/Tunes </dd>
+                <dd> [Route("api/Tunes")] </dd>
+                <dd> public IHttpActionResult PostTune(Tune tune) </dd>
+            </dl>
+
+            <dl>
+                <dt> Update </dt>
+                <dd> // PUT: api/Tunes/5 </dd>
+                <dd> [Route("api/Tunes/{id}")] </dd>
+                <dd> public IHttpActionResult PutTune(int id, Tune tune) </dd>
+            </dl>
+
+            <dl>
+                <dt> Delete </dt>
+                <dd> // DELETE: api/Tunes/5 </dd>
+                <dd> [Route("api/Tunes/{id}")] </dd>
+                <dd> public IHttpActionResult DeleteTune(int id) </dd>
+            </dl>
+
             <h4>Under Development (Work in Progress)</h4>
-            <ul>
-                <li> GetTuneByTuneIdAndUserId </li>
-                <li>  </li>
-            </ul>
+            <dl>
+                <dt> GetTuneByTuneIdAndUserId </dt>
+                <dd> public IEnumerable<tune> GetTune(int TuneId, string userId) </dd>
+                <dd>      </dd>
+            </dl>
 
-            <img src="~/Content/images/JBrooksBanjo.jpg" width="24" height="39"/>
+            <p></p>
 
-            <h2>
-                <a id="rest--representational-state-transfer" class="anchor" href="#rest--representational-state-transfer" aria-hidden="true"><span class="octicon octicon-link"></span></a>REST:  REpresentational State Transfer 
-            </h2>
+                <h2>
+                    <a id="rest--representational-state-transfer" class="anchor" href="#rest--representational-state-transfer" aria-hidden="true"><span class="octicon octicon-link"></span></a>REST:  REpresentational State Transfer
+                </h2>
 
-            <h3>
-                <a id="from-wikipediaorg" class="anchor" href="#from-wikipediaorg" aria-hidden="true"><span class="octicon octicon-link"></span></a>[from Wikipedia.org]
-            </h3>
+                <h3>
+                    <a id="from-wikipediaorg" class="anchor" href="#from-wikipediaorg" aria-hidden="true"><span class="octicon octicon-link"></span></a>[from Wikipedia.org]
+                </h3>
 
-            <h3>
-                <a id="architectural-constraints" class="anchor" href="#architectural-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architectural constraints
-            </h3>
+                <h3>
+                    <a id="architectural-constraints" class="anchor" href="#architectural-constraints" aria-hidden="true"><span class="octicon octicon-link"></span></a>Architectural constraints
+                </h3>
 
-            <p>The architectural properties of REST are realized by applying specific interaction constraints to components, connectors, and data elements. The formal REST constraints are:</p>
+                <p>The architectural properties of REST are realized by applying specific interaction constraints to components, connectors, and data elements. The formal REST constraints are:</p>
 
-            <h4>
-                <a id="clientserver" class="anchor" href="#clientserver" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client–server
-            </h4>
+                <h4>
+                    <a id="clientserver" class="anchor" href="#clientserver" aria-hidden="true"><span class="octicon octicon-link"></span></a>Client–server
+                </h4>
 
-            <p>A uniform interface separates clients from servers. This separation of concerns means that, for example, clients are not concerned with data storage, which remains internal to each server, so that the portability of client code is improved. Servers are not concerned with the user interface or user state, so that servers can be simpler and more scalable. Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered.</p>
+                <p>A uniform interface separates clients from servers. This separation of concerns means that, for example, clients are not concerned with data storage, which remains internal to each server, so that the portability of client code is improved. Servers are not concerned with the user interface or user state, so that servers can be simpler and more scalable. Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered.</p>
 
-            <h4>
-                <a id="stateless" class="anchor" href="#stateless" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stateless
-            </h4>
+                <h4>
+                    <a id="stateless" class="anchor" href="#stateless" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stateless
+                </h4>
 
-            <p>The client–server communication is further constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and session state is held in the client. The session state can be transferred by the server to another service such as a database to maintain a persistent state for a period and allow authentication. The client begins sending requests when it is ready to make the transition to a new state. While one or more requests are outstanding, the client is considered to be in transition. The representation of each application state contains links that may be used the next time the client chooses to initiate a new state-transition.</p>
+                <p>The client–server communication is further constrained by no client context being stored on the server between requests. Each request from any client contains all the information necessary to service the request, and session state is held in the client. The session state can be transferred by the server to another service such as a database to maintain a persistent state for a period and allow authentication. The client begins sending requests when it is ready to make the transition to a new state. While one or more requests are outstanding, the client is considered to be in transition. The representation of each application state contains links that may be used the next time the client chooses to initiate a new state-transition.</p>
 
-            <h4>
-                <a id="cacheable" class="anchor" href="#cacheable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cacheable
-            </h4>
+                <h4>
+                    <a id="cacheable" class="anchor" href="#cacheable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cacheable
+                </h4>
 
-            <p>As on the World Wide Web, clients can cache responses. Responses must therefore, implicitly or explicitly, define themselves as cacheable, or not, to prevent clients from reusing stale or inappropriate data in response to further requests. Well-managed caching partially or completely eliminates some client–server interactions, further improving scalability and performance.</p>
+                <p>As on the World Wide Web, clients can cache responses. Responses must therefore, implicitly or explicitly, define themselves as cacheable, or not, to prevent clients from reusing stale or inappropriate data in response to further requests. Well-managed caching partially or completely eliminates some client–server interactions, further improving scalability and performance.</p>
 
-            <h4>
-                <a id="layered-system" class="anchor" href="#layered-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layered system
-            </h4>
+                <h4>
+                    <a id="layered-system" class="anchor" href="#layered-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layered system
+                </h4>
 
-            <p>A client cannot ordinarily tell whether it is connected directly to the end server, or to an intermediary along the way. Intermediary servers may improve system scalability by enabling load balancing and by providing shared caches. They may also enforce security policies.</p>
+                <p>A client cannot ordinarily tell whether it is connected directly to the end server, or to an intermediary along the way. Intermediary servers may improve system scalability by enabling load balancing and by providing shared caches. They may also enforce security policies.</p>
 
-            <h4>
-                <a id="code-on-demand-optional" class="anchor" href="#code-on-demand-optional" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code on demand (optional)
-            </h4>
+                <h4>
+                    <a id="code-on-demand-optional" class="anchor" href="#code-on-demand-optional" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code on demand (optional)
+                </h4>
 
-            <p>Servers can temporarily extend or customize the functionality of a client by the transfer of executable code. Examples of this may include compiled components such as Java applets and client-side scripts such as JavaScript. "Code on demand" is the only optional constraint of the REST architecture.</p>
+                <p>Servers can temporarily extend or customize the functionality of a client by the transfer of executable code. Examples of this may include compiled components such as Java applets and client-side scripts such as JavaScript. "Code on demand" is the only optional constraint of the REST architecture.</p>
 
-            <h4>
-                <a id="uniform-interface" class="anchor" href="#uniform-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Uniform interface
-            </h4>
+                <h4>
+                    <a id="uniform-interface" class="anchor" href="#uniform-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Uniform interface
+                </h4>
 
-            <p>The uniform interface constraint is fundamental to the design of any REST service.[3] The uniform interface simplifies and decouples the architecture, which enables each part to evolve independently. The four constraints for this uniform interface are:</p>
+                <p>The uniform interface constraint is fundamental to the design of any REST service.[3] The uniform interface simplifies and decouples the architecture, which enables each part to evolve independently. The four constraints for this uniform interface are:</p>
 
-            <h5>
-                <a id="identification-of-resources" class="anchor" href="#identification-of-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identification of resources
-            </h5>
+                <h5>
+                    <a id="identification-of-resources" class="anchor" href="#identification-of-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Identification of resources
+                </h5>
 
-            <p>Individual resources are identified in requests, for example using URIs in web-based REST systems. The resources themselves are conceptually separate from the representations that are returned to the client. For example, the server may send data from its database as HTML, XML or JSON, none of which are the server's internal representation, and it is the same one resource regardless.</p>
+                <p>Individual resources are identified in requests, for example using URIs in web-based REST systems. The resources themselves are conceptually separate from the representations that are returned to the client. For example, the server may send data from its database as HTML, XML or JSON, none of which are the server's internal representation, and it is the same one resource regardless.</p>
 
-            <h5>
-                <a id="manipulation-of-resources-through-these-representations" class="anchor" href="#manipulation-of-resources-through-these-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manipulation of resources through these representations
-            </h5>
+                <h5>
+                    <a id="manipulation-of-resources-through-these-representations" class="anchor" href="#manipulation-of-resources-through-these-representations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manipulation of resources through these representations
+                </h5>
 
-            <p>When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource.</p>
+                <p>When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource.</p>
 
-            <h5>
-                <a id="self-descriptive-messages" class="anchor" href="#self-descriptive-messages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Self-descriptive messages
-            </h5>
+                <h5>
+                    <a id="self-descriptive-messages" class="anchor" href="#self-descriptive-messages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Self-descriptive messages
+                </h5>
 
-            <p>Each message includes enough information to describe how to process the message. For example, which parser to invoke may be specified by an Internet media type (previously known as a MIME type). Responses also explicitly indicate their cacheability.</p>
+                <p>Each message includes enough information to describe how to process the message. For example, which parser to invoke may be specified by an Internet media type (previously known as a MIME type). Responses also explicitly indicate their cacheability.</p>
 
-            <h6>
-                <a id="hypermedia-as-the-engine-of-application-state-hateoas" class="anchor" href="#hypermedia-as-the-engine-of-application-state-hateoas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hypermedia as the engine of application state (HATEOAS)
-            </h6>
+                <h6>
+                    <a id="hypermedia-as-the-engine-of-application-state-hateoas" class="anchor" href="#hypermedia-as-the-engine-of-application-state-hateoas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hypermedia as the engine of application state (HATEOAS)
+                </h6>
 
-            <p>
-                Clients make state transitions only through actions that are dynamically identified within hypermedia by the server (e.g., by hyperlinks within hypertext). Except for simple fixed entry points to the application, a client does not assume that any particular action is available for any particular resources beyond those described in representations previously received from the server.
-                One can characterise applications conforming to the REST constraints described in this section as "RESTful". If a service violates any of the required constraints, it cannot be considered RESTful.
-            </p>
+                <p>
+                    Clients make state transitions only through actions that are dynamically identified within hypermedia by the server (e.g., by hyperlinks within hypertext). Except for simple fixed entry points to the application, a client does not assume that any particular action is available for any particular resources beyond those described in representations previously received from the server.
+                    One can characterise applications conforming to the REST constraints described in this section as "RESTful". If a service violates any of the required constraints, it cannot be considered RESTful.
+                </p>
 
-            <p>Complying with these constraints, and thus conforming to the REST architectural style, enables any kind of distributed hypermedia system to have desirable emergent properties, such as performance, scalability, simplicity, modifiability, visibility, portability, and reliability.</p>
-        </section>
+                <p>Complying with these constraints, and thus conforming to the REST architectural style, enables any kind of distributed hypermedia system to have desirable emergent properties, such as performance, scalability, simplicity, modifiability, visibility, portability, and reliability.</p>
+</section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
         <footer class="inner">
-            <p class="copyright">Documentation maintained by <a href="https://github.com/jbrooks036">jbrooks036</a></p>
+            <p class="copyright">Documentation maintained by <a href="https://github.com/jbrooks036">jbrooks036    </a>
+                <img src="~/Content/images/JBrooksBanjo.jpg" width="24" height="39" />
+            </p>
             <p>Generated with <a href="https://pages.github.com">GitHub Pages</a></p>
         </footer>
     </div>
