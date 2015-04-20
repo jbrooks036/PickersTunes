@@ -71,15 +71,6 @@ namespace PickersTunes.Repository
             _dbContext.SaveChanges();
         }
 
-        public ObservableCollection<Models.Tune> GetByTuneName(string name)
-        {
-            var query = from Tune in _dbContext.Tunes
-                        where name == Tune.Name
-                        select Tune;
-            var tunes = new ObservableCollection<Tune>(query.ToList<Tune>());
-            return tunes;
-        }
-
         public IEnumerable<Models.Tune> GetAllTunesByUserId(string userId)
         {
             var qu = from tune in _dbContext.Tunes

@@ -66,16 +66,6 @@ namespace TestPickers
         }
 
         [TestMethod]
-        public void TestGetByTuneName()
-        {
-            repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
-            repo.Add(new PickersTunes.Models.Tune("Foggy Mountain Breakdown"));
-            repo.Add(new PickersTunes.Models.Tune("Boil dem Cabbage Down"));
-            var t = repo.GetByTuneName("Little Maggie")[0];
-            Assert.AreEqual(t.Name, "Little Maggie");
-        }
-
-        [TestMethod]
         public void TestGetCount()
         {
             Assert.AreEqual(0, repo.GetCount());
