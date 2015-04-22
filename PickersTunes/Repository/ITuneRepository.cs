@@ -18,7 +18,6 @@ namespace PickersTunes.Repository
         IEnumerable<Tune> GetAllTunesByUserId(string userId);
         IEnumerable<Models.Tune> All();
         // Tune GetTuneByIdAndUserId(string userId);
-        // ObservableCollection<Models.Tune> GetByTuneName(string name);
         // IQueryable<Tune> SearchFor(Expression<Func<Tune, bool>> predicate);
     }
 }

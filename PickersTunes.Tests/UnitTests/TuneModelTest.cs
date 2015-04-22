@@ -6,8 +6,6 @@ namespace TestPickers
     [TestClass]
     public class TuneModelTest
     {
-        /*
-        */
 
         [TestMethod]
         public void CreatingATuneStoresItsProperties()
