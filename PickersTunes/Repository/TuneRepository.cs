@@ -35,6 +35,13 @@ namespace PickersTunes.Repository
             return _dbContext.Tunes;
         }
 
+        public void Clear()
+        {
+            var a = this.All();
+            _dbContext.Tunes.RemoveRange(a);
+            _dbContext.SaveChanges();
+        }
+
         public int GetCount()
         {
             return _dbContext.Tunes.Count<Models.Tune>();
@@ -45,6 +52,21 @@ namespace PickersTunes.Repository
             // TBD: error checking for adding duplicate tune, or migration on table
             _dbContext.Tunes.Add(T);
             _dbContext.SaveChanges();
+        }
+
+        public IEnumerable<Models.Tune> All()
+        {
+            var qu = from Tune in _dbContext.Tunes
+                     select Tune;
+            return qu.ToList<Models.Tune>();
+        }
+
+        public IEnumerable<Models.Tune> GetAllTunesByUserId(string userId)
+        {
+            var qu = from tune in _dbContext.Tunes
+                     where tune.ApplicationUserId == userId
+                     select tune;
+            return qu.ToList<Models.Tune>();
         }
 
         public void Delete(Models.Tune T)
@@ -61,30 +83,7 @@ namespace PickersTunes.Repository
             var tune = new ObservableCollection<Tune>(query.ToList<Tune>());
             return tune;
         }
-
         */
-
-        public void Clear()
-        {
-            var a = this.All();
-            _dbContext.Tunes.RemoveRange(a);
-            _dbContext.SaveChanges();
-        }
-
-        public IEnumerable<Models.Tune> GetAllTunesByUserId(string userId)
-        {
-            var qu = from tune in _dbContext.Tunes
-                     where tune.ApplicationUserId == userId
-                     select tune;
-            return qu.ToList<Models.Tune>();
-        }
-
-        public IEnumerable<Models.Tune> All()
-        {
-            var qu = from Tune in _dbContext.Tunes
-                     select Tune;
-            return qu.ToList<Models.Tune>();
-        }
 
         public void Dispose()
         {

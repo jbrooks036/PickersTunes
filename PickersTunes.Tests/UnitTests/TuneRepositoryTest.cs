@@ -39,46 +39,57 @@ namespace TestPickers
         }
 
         [TestMethod]
-        public void TestAddToDatabase() // Valid
+        public void TestClear()
         {
+            repo.Add(new Tune("Little Maggie"));
+            repo.Clear();
             Assert.AreEqual(0, repo.GetCount());
-            repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
-            Assert.AreEqual(1, repo.GetCount());
-        }
-
-        [TestMethod]
-        public void TestAllMethod()
-        {
-            repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
-            repo.Add(new PickersTunes.Models.Tune("Foggy Mountain Breakdown"));
-            Assert.AreEqual(2, repo.GetCount());
-        }
-
-        [TestMethod]
-        public void TestGetAllByUserId()
-        {
-            repo.Add(new PickersTunes.Models.Tune("You the One", "Kathy Mattea", "Wild Rose", "Jennifer Iris"));
-            repo.Add(new PickersTunes.Models.Tune("Foggy Mountain Breakdown", "Scruggs and Flatt", "Scruggs and Flatt Album", "Mary Rose"));
-            repo.Add(new PickersTunes.Models.Tune("Keep on the Sunny Side", "Robin Flower", "First Album", "Jennifer Iris"));
-            repo.Add(new PickersTunes.Models.Tune("Tickle Me", "Robin Flower", "First Album", "Jennifer Iris"));
-            var t = repo.GetAllTunesByUserId("Jennifer Iris");
-            Assert.AreEqual(3, t.Count());
         }
 
         [TestMethod]
         public void TestGetCount()
         {
             Assert.AreEqual(0, repo.GetCount());
-            repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
+            repo.Add(new Tune("Little Maggie"));
             Assert.AreEqual(1, repo.GetCount());
         }
 
         [TestMethod]
-        public void TestClear()
+        public void TestAddToDatabase() // Valid
         {
-            repo.Add(new PickersTunes.Models.Tune("Little Maggie"));
-            repo.Clear();
+            Assert.AreEqual(0, repo.GetCount());
+            repo.Add(new Tune("Little Maggie"));
+            Assert.AreEqual(1, repo.GetCount());
+        }
+
+        [TestMethod]
+        public void TestAllMethod()
+        {
+            repo.Add(new Tune("Little Maggie"));
+            repo.Add(new Tune("Foggy Mountain Breakdown"));
+            Assert.AreEqual(2, repo.GetCount());
+        }
+
+        [TestMethod]
+        public void TestGetAllTunesByUserId()
+        {
+            repo.Add(new Tune("You the One", "Kathy Mattea", "Wild Rose", "Jennifer Iris"));
+            repo.Add(new Tune("Foggy Mountain Breakdown", "Scruggs and Flatt", "Scruggs and Flatt Album", "Mary Rose"));
+            repo.Add(new Tune("Keep on the Sunny Side", "Robin Flower", "First Album", "Jennifer Iris"));
+            repo.Add(new Tune("Tickle Me", "Robin Flower", "First Album", "Jennifer Iris"));
+            var t = repo.GetAllTunesByUserId("Jennifer Iris");
+            Assert.AreEqual(3, t.Count());
+        }
+
+        [TestMethod]
+        public void TestDelete()
+        {
+            var t = new Tune("Little Maggie");
+            repo.Add(t);
+            Assert.AreEqual(1, repo.GetCount());
+            repo.Delete(t);
             Assert.AreEqual(0, repo.GetCount());
         }
+
     }
 }
