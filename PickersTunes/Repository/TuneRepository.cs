@@ -71,7 +71,8 @@ namespace PickersTunes.Repository
 
         public void Delete(Models.Tune T)
         {
-            throw new NotImplementedException();
+            _dbContext.Tunes.Remove(T);
+            _dbContext.SaveChanges();
         }
 
         /*
